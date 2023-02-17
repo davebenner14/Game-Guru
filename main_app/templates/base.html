@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Gaming Guru</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </head>
+  <body>
+    <header class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <ul>
+            <li>
+              <a href="{% url 'home' %}" class="left brand-logo"
+                >&nbsp;&nbsp;Gaming Guru</a
+              >
+            </li>
+          </ul>
+          <ul class="right">
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li></li>
+            <li><a href="{% url 'vids_create' %}">Add a Video Game</a></li>
+            <li><a href="{% url 'index' %}">View All Ganes</a></li>
+          </ul>
+        </div>
+        <script>
+          const dateEl = document.getElementById("id_date");
+          M.Datepicker.init(dateEl, {
+            format: "yyyy-mm-dd",
+            defaultDate: new Date(),
+            setDefaultDate: true,
+            autoClose: true,
+          });
+
+          const selectEl = document.getElementById("id_progress");
+          M.FormSelect.init(selectEl);
+        </script>
+      </nav>
+    </header>
+    <main class="container">{% block content %} {% endblock %}</main>
+    <footer class="page-footer">
+      <div class="right">
+        All Rights Reserved, &copy; Gaming Guru 2023 &nbsp;
+      </div>
+    </footer>
+  </body>
+</html>

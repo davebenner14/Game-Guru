@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Guru's List</h1>
+
+{% for vid in vids %}
+<div class="card">
+  <a href="{% url 'detail' vid.id %}">
+    <div class="card-content">
+      <span class="card-title">{{ vid.name }}</span>
+      <p>Console: {{ vid.console }}</p>
+      <p>Genre: {{ vid.genre }}</p>
+      <p>Year Released: {{ vid.release }}</p>
+    </div>
+  </a>
+</div>
+{% endfor %} {% endblock %}
